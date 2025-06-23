@@ -1,0 +1,6 @@
+body { font-family: 'Poppins', sans-serif; line-height: 1.4; color:#f2f2f2; background:#0f0c29; background:linear-gradient(135deg,#24243e 0%,#302b63 50%,#0f0c29 100%);}
+.card { padding:24px; border-radius:18px; box-shadow:0 4px 14px rgba(0,0,0,.4);}
+.front { font-size:2.2rem; font-weight:600; letter-spacing:1px; text-align:center; }
+.back  { font-size:1.1rem; }
+ul { margin-top:10px; padding-left:20px; }
+li { margin:4px 0; }

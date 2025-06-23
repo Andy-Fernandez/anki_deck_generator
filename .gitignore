@@ -1,0 +1,30 @@
+# Virtual environment
+.venv/
+venv/
+ENV/
+env/
+
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Mac system files
+.DS_Store
+
+# CSV deck exports (can be re-generated)
+*.csv
+
+# Output Anki deck
+*.apkg
+
+# Logs / misc
+*.log
+*.bak
+*.swp
+
+# VS Code settings
+.vscode/
+
+# Python environment settings
+pip-log.txt
