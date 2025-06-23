@@ -1,14 +1,19 @@
-# 📚 Anki Deck Builder – Verb Tenses (Gen‑Z Edition)
+# 📚 Anki Deck Builder
 
-> **Goal:** Give you a reusable, hacker‑friendly starter kit for crafting English‑grammar decks (and any other topic) with spaced repetition. Clone it, swap the CSV, rerun — profit. 💸
+<p align="center">
+  <img src="https://i.imgur.com/0ijDJER.png" alt="Anki Card Front Example" width="400"/>
+  <img src="https://i.imgur.com/MhrTLxF.png" alt="Anki Card Back Example" width="400"/>
+</p>
+
+> **Goal:** Create beautiful, customizable, and reusable Anki decks using Python, CSV, and CSS. Supports any topic (languages, coding, medicine, etc.) and spaced repetition best practices.
 
 ---
 
 ## 🗂️ Project Layout
 
 ```text
-anki_tenses/
-├── english_verb_tenses.csv   # ✨ Your data (Front,Back)
+anki_deck_builder/
+├── deck.csv                  # ✨ Your data (Front,Back)
 ├── genz_style.css            # 🎨 Card look & feel
 ├── build_deck.py             # 🐍 Deck compiler (CSV → .apkg)
 └── README.md                 # 📖 You are here
@@ -22,7 +27,7 @@ anki_tenses/
 
 ```bash
 # 1. Grab the repo / files
-mkdir anki_tenses && cd anki_tenses
+mkdir anki_deck_builder && cd anki_deck_builder
 # (copy the CSV, CSS & build_deck.py here)
 
 # 2. Optional: create a virtual environment
@@ -34,7 +39,7 @@ pip install --upgrade pip genanki
 
 # 4. Compile the deck
 python build_deck.py
-# → Verb_Tenses_GenZ.apkg appears
+# → YourDeck.apkg appears
 
 # 5. Open Anki → Import → select the .apkg
 ```
@@ -45,17 +50,17 @@ python build_deck.py
 
 ## 📝 CSV Schema
 
-| Column    | Required | Description                                         |
-| --------- | -------- | --------------------------------------------------- |
-| **Front** | ✔        | What the learner sees first (e.g. *Present Simple*) |
-| **Back**  | ✔        | Answer side – key concept + max 3 examples          |
-| *Extra X* | ✖        | Add more fields if you extend the model             |
+| Column    | Required | Description                                       |
+| --------- | -------- | ------------------------------------------------- |
+| **Front** | ✔        | What the learner sees first (e.g. *Keyword*)      |
+| **Back**  | ✔        | Answer side – definition, explanation, or example |
+| *Extra X* | ✖        | Add more fields if you extend the model           |
 
 ### Example (comma‑separated, UTF‑8):
 
 ```csv
 Front,Back
-"Present Simple","<b>Uso clave:</b> Verdades, hábitos...<ul><li>Water boils...</li>...</ul>"
+"TCP/IP","Set of protocols used for internet communication."
 ...
 ```
 
@@ -80,15 +85,15 @@ Change `MODEL_ID` / `DECK_ID` if you fork multiple decks to avoid clashes in Ank
 note = genanki.Note(
     model=model,
     fields=[front, back],
-    tags=["tenses"]
+    tags=["mydeck"]
 )
-# Duplicate with fields swapped if wanted
+# Duplicate with fields swapped if needed
 ```
 
 ### Pack extra media (e.g. TTS audio)
 
 ```python
-package = genanki.Package(deck, media_files=["audio/I_brush.mp3", ...])
+package = genanki.Package(deck, media_files=["audio/sample.mp3", ...])
 ```
 
 ---
@@ -106,7 +111,7 @@ body{font-family:'Poppins',sans-serif;line-height:1.4;color:#f2f2f2;background:#
 ## 🛠️ Extending: Build New Decks in 4 Easy Steps
 
 1. **Clone** this folder → give it a new project name.
-2. **Swap** `english_verb_tenses.csv` with your own (same column headers).
+2. **Swap** `deck.csv` with your own (same column headers).
 3. *Optionally* tweak CSS & script IDs.
 4. **Run** `python build_deck.py` → new `.apkg` pops out.
 
@@ -147,7 +152,7 @@ pd.DataFrame(cards).to_csv('my_deck.csv',index=False)
 ## ✨ License & Credits
 
 * MIT License — use freely, remix wildly.
-* Built with ♥ by you (and ChatGPT‑o3).
+* Built with ♥ by Pablo.
 
 ---
 
